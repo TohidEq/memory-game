@@ -14,3 +14,33 @@
 .turns {
   @apply text-lg py-2;
 }
+img {
+  @apply block rounded-xl w-full h-full;
+}
+.card {
+  @apply transition-all duration-150;
+}
+.card * {
+  @apply transition-all duration-150;
+}
+.card > div {
+  @apply relative;
+}
+
+.card .front {
+  @apply absolute;
+  transform: rotateY(90deg);
+}
+.flipped .front {
+  transform: rotateY(0deg);
+  @apply delay-150;
+}
+
+.card .back {
+  transform: rotateY(0deg);
+  @apply delay-150;
+}
+.flipped .back {
+  transform: rotateY(90deg);
+  @apply delay-[0ms];
+}

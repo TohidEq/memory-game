@@ -9,16 +9,20 @@ type cardType = {
 type Props = {
   card: cardType;
   handleChoice: Function;
+  flipped: boolean;
+  disabled: boolean;
 };
 
 const SingleCard = (props: Props) => {
   const handleCard = () => {
-    props.handleChoice(props.card);
+    if (!props.disabled) {
+      props.handleChoice(props.card);
+    }
   };
 
   return (
     <div className="card">
-      <div>
+      <div className={props.flipped ? "flipped" : ""}>
         <img className="front" src={props.card.src} alt="card front" />
         <img
           className="back"

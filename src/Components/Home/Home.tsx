@@ -25,6 +25,8 @@ const Home = (props: Props) => {
   const [choiceOne, setChoiceOne] = useState<cardType | null>(null);
   const [choiceTwo, setChoiceTwo] = useState<cardType | null>(null);
 
+  const [disabled, setDisabled] = useState<boolean>(false);
+
   // shuffle cards :
   const shuffleCards = () => {
     const shuffledCards: cardType[] = [...cardImages, ...cardImages]
@@ -35,6 +37,7 @@ const Home = (props: Props) => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns(0);
+    setDisabled(false);
   };
 
   // handle a Choice
@@ -49,6 +52,7 @@ const Home = (props: Props) => {
   // compare 2 selected cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
       if (choiceOne!.src === choiceTwo!.src) {
         setCards((prevCards) => {
           return prevCards.map((card) => {
@@ -60,10 +64,11 @@ const Home = (props: Props) => {
           });
         });
         console.log("mathced");
+        resetTurn();
       } else {
         console.log("not matched");
+        setTimeout(() => resetTurn(), 400);
       }
-      resetTurn();
     }
   }, [choiceOne, choiceTwo]);
 
@@ -72,6 +77,7 @@ const Home = (props: Props) => {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns! + 1);
+    setDisabled(false);
     console.log(cards);
   };
 
@@ -89,7 +95,13 @@ const Home = (props: Props) => {
       </div>
       <div className="card-grid">
         {cards.map((card) => (
-          <SingleCard card={card} key={card.id} handleChoice={handleChoice} />
+          <SingleCard
+            card={card}
+            key={card.id}
+            disabled={disabled}
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
+          />
         ))}
       </div>
     </div>

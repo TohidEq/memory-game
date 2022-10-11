@@ -637,3 +637,46 @@ body {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+
+img{
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.75rem;
+}
+
+.card{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.card *{
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.card > div{
+  position: relative;
+}
+
+.card .front{
+  position: absolute;
+  transform: rotateY(90deg);
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 150ms;
+}
+
+.card .back {
+  transform: rotateY(0deg);
+  transition-delay: 150ms;
+}
+
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0ms;
+}
