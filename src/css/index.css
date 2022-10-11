@@ -599,3 +599,39 @@ body {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
+
+.card-grid{
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  width: -moz-fit-content;
+  width: fit-content;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  justify-content: center;
+  justify-items: center;
+  gap: 0.25rem;
+  padding-top: 1.5rem;
+}
+
+@media (min-width: 640px){
+  .card-grid{
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 768px){
+  .card-grid{
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px){
+  .card-grid{
+    gap: 1rem;
+  }
+}
+
+.card-grid > div{
+  --tw-bg-opacity: 1;
+  background-color: rgb(135 162 251 / var(--tw-bg-opacity));
+}
