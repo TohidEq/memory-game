@@ -1,12 +1,42 @@
-import React from "react";
+import { type } from "@testing-library/user-event/dist/type";
+import React, { useState } from "react";
 
 type Props = {};
 
 const Home = (props: Props) => {
+  const cardImages: { src: string }[] = [
+    { src: "/img/helmet-1.png" },
+    { src: "/img/potion-1.png" },
+    { src: "/img/ring-1.png" },
+    { src: "/img/scroll-1.png" },
+    { src: "/img/shield-1.png" },
+    { src: "/img/sword-1.png" },
+  ];
+
+  const [cards, setCards] = useState<{ src: string; id: number }[]>([]);
+  const [turns, setTurns] = useState(0);
+
+  // shuffle cards :
+  const shuffleCards = () => {
+    const shuffledCards: { src: string; id: number }[] = [
+      ...cardImages,
+      ...cardImages,
+    ]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
+
+    setCards(shuffledCards);
+    setTurns(0);
+  };
+
+  console.log(cardImages, cards);
+
   return (
     <div className="home">
       <h1>Memory Game</h1>
-      <button className="button">New Game</button>
+      <button className="button" onClick={shuffleCards}>
+        New Game
+      </button>
     </div>
   );
 };
