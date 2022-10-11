@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  @apply min-h-screen;
+
+  background: hsla(263, 61%, 31%, 1);
+
+  background: linear-gradient(
+    135deg,
+    hsla(263, 61%, 31%, 1) 0%,
+    hsla(226, 43%, 56%, 1) 100%
+  );
+
+  background: -moz-linear-gradient(
+    135deg,
+    hsla(263, 61%, 31%, 1) 0%,
+    hsla(226, 43%, 56%, 1) 100%
+  );
+
+  background: -webkit-linear-gradient(
+    135deg,
+    hsla(263, 61%, 31%, 1) 0%,
+    hsla(226, 43%, 56%, 1) 100%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#441F80", endColorstr="#5F76BF", GradientType=1 );
+}
+.App {
+  @apply container 
+    mx-auto
+    text-center;
+}
+.App > div {
+  @apply max-w-4xl mx-auto;
+}
+.App > div > h1 {
+  @apply text-3xl
+    pt-5 pb-4;
+}
+.button {
+  @apply rounded-md 
+  
+  py-2 px-3
+  transition-all duration-150
+  text-xl
+  text-cwhite-1 
+  border-2
+  border-opacity-0
+  border-cdark-2
+  bg-opacity-100
+  bg-cdark-2
+
+  hover:bg-opacity-60 
+
+  active:bg-opacity-25
+  active:border-opacity-100
+  active:bg-cdark-1;
+}

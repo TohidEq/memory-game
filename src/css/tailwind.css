@@ -5,3 +5,5 @@
 
 @import "./base/_page.css";
 
+@import "../Components/Home/Home.css";
+@import "../Components/NotFound/NotFound.css";
