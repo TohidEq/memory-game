@@ -17,8 +17,14 @@ const Home = (props: Props) => {
   const [cards, setCards] = useState<{ src: string; id: number }[]>([]);
   const [turns, setTurns] = useState(0);
 
-  const [choiceOne, setChoiceOne] = useState<string>("");
-  const [choiceTwo, setChoiceTwo] = useState<string>("");
+  const [choiceOne, setChoiceOne] = useState<{
+    src: string;
+    id: number;
+  } | null>(null);
+  const [choiceTwo, setChoiceTwo] = useState<{
+    src: string;
+    id: number;
+  } | null>(null);
 
   // shuffle cards :
   const shuffleCards = () => {
@@ -35,7 +41,7 @@ const Home = (props: Props) => {
 
   // handle a Choice
   const handleChoice = (card: { src: string; id: number }) => {
-    choiceOne ? setChoiceTwo(card.src) : setChoiceOne(card.src);
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
   return (
