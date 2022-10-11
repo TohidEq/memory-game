@@ -10,6 +10,4 @@
     lg:gap-4
     pt-6;
 }
-.card-grid > div {
-  @apply bg-cwhite-3;
-}
+

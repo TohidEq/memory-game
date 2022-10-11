@@ -630,8 +630,3 @@ body {
     gap: 1rem;
   }
 }
-
-.card-grid > div{
-  --tw-bg-opacity: 1;
-  background-color: rgb(135 162 251 / var(--tw-bg-opacity));
-}
