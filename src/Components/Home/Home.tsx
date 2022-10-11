@@ -17,6 +17,9 @@ const Home = (props: Props) => {
   const [cards, setCards] = useState<{ src: string; id: number }[]>([]);
   const [turns, setTurns] = useState(0);
 
+  const [choiceOne, setChoiceOne] = useState<string>("");
+  const [choiceTwo, setChoiceTwo] = useState<string>("");
+
   // shuffle cards :
   const shuffleCards = () => {
     const shuffledCards: { src: string; id: number }[] = [
@@ -30,7 +33,10 @@ const Home = (props: Props) => {
     setTurns(0);
   };
 
-  console.log(cardImages, cards);
+  // handle a Choice
+  const handleChoice = (card: { src: string; id: number }) => {
+    choiceOne ? setChoiceTwo(card.src) : setChoiceOne(card.src);
+  };
 
   return (
     <div className="home">
@@ -41,7 +47,7 @@ const Home = (props: Props) => {
 
       <div className="card-grid">
         {cards.map((card) => (
-          <SingleCard card={card} key={card.id} />
+          <SingleCard card={card} key={card.id} handleChoice={handleChoice} />
         ))}
       </div>
     </div>
