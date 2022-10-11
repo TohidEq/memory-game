@@ -34,12 +34,12 @@ body {
 .App > div {
   @apply max-w-4xl mx-auto;
 }
-.App > div > h1 {
+.head h1 {
   @apply text-3xl
   font-bold
     pt-5 pb-4;
 }
-.button {
+.head .button {
   @apply rounded-md 
   
   py-1 px-2

@@ -6,10 +6,12 @@ type Props = {};
 const NotFound = (props: Props) => {
   return (
     <div className="not-found">
-      <h1>404 Not Found</h1>
-      <Link to={"/"}>
-        <button className="button">Back to Home</button>
-      </Link>
+      <div className="head">
+        <h1>404 Not Found</h1>
+        <Link to={"/"}>
+          <button className="button">Back to Home</button>
+        </Link>
+      </div>
     </div>
   );
 };

@@ -11,3 +11,6 @@
     pt-6;
 }
 
+.turns {
+  @apply text-lg py-2;
+}

@@ -1,10 +1,13 @@
 import React from "react";
 
+type cardType = {
+  src: string;
+  id: number;
+  matched: boolean;
+};
+
 type Props = {
-  card: {
-    src: string;
-    id: number;
-  };
+  card: cardType;
   handleChoice: Function;
 };
 
